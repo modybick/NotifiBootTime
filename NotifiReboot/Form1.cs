@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
@@ -19,12 +12,24 @@ namespace NotifiReboot
         TimeSpan notifiSpan;
         int notifiTimes;
         string notifiMsg;
+        Boolean msgFrag = true;
         DateTime startTime = DateTime.Now;  //起動時刻
 
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            notifyIcon1.Dispose();
+        }
+
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,16 +59,25 @@ namespace NotifiReboot
             DateTime nowTime = DateTime.Now;
             TimeSpan runningSpan = nowTime - startTime;
 
-            if (runningSpan >= notifiSpan)
+            if (notifiTimes == 0)
+            {   //通知回数が０の時は、アプリを閉じる。
+                this.Close();
+                Application.Exit();
+            }
+
+            if (runningSpan >= notifiSpan && msgFrag == true && notifiTimes != 0)
             {   //起動から特定の時間が経過していたら
-                MessageBox.Show(notifiMsg,
+                msgFrag = false;    //メッセージ表示中は、新しいメッセージが出ないようにする。
+                if (MessageBox.Show(notifiMsg,
                     "起動時間超過",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+                    MessageBoxIcon.Exclamation) == DialogResult.OK)
+                {   //メッセージボックスを閉じたら
+                    msgFrag = true;
+                    notifiTimes -= 1;
+                }
             }
         }
     }
-
-
-
+    
 }
