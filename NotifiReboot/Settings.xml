@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <timerInterval>10000</timerInterval>
+  <notifiSpanH>0</notifiSpanH>
+  <notifiSpanM>0</notifiSpanM>
+  <notifiSpanS>10</notifiSpanS>
+  <notifiTimes>5</notifiTimes>
+  <notifiMsg>
+    PCの起動から１日以上が経過しています。
+    PCを再起動してください。
+  </notifiMsg>
+</settings>
