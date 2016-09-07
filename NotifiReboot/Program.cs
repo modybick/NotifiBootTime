@@ -16,8 +16,7 @@ namespace NotifiReboot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new Form1();
-            Application.Run();
+            Application.Run(new Form1());
         }
     }
 }

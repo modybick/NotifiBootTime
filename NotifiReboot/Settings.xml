@@ -3,8 +3,9 @@
   <timerInterval>5000</timerInterval>
   <notifiSpanH>0</notifiSpanH>
   <notifiSpanM>0</notifiSpanM>
-  <notifiSpanS>10</notifiSpanS>
+  <notifiSpanS>5</notifiSpanS>
   <notifiTimes>3</notifiTimes>
+  <notiriTitle>test</notiriTitle>
   <notifiMsg>
     PCの起動から１日以上が経過しています。
     PCを再起動してください。

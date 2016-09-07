@@ -11,6 +11,7 @@ namespace NotifiReboot
         int notifiSpanH, notifiSpanM, notifiSpanS;
         TimeSpan notifiSpan;
         int notifiTimes;
+        string notifiTitle;
         string notifiMsg;
         Boolean msgFrag = true;
         DateTime startTime = DateTime.Now;  //起動時刻
@@ -34,7 +35,7 @@ namespace NotifiReboot
 
         private void Form1_Load(object sender, EventArgs e)
         {   //アプリケーション開始時
-
+            Hide();
             //設定読み込み
             FileStream fs = new FileStream(@".\Settings.xml", FileMode.Open);
             System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(Settings));
@@ -46,6 +47,7 @@ namespace NotifiReboot
             notifiSpanS = settings.NotifiSpanS;
             notifiSpan = new TimeSpan(notifiSpanH, notifiSpanM, notifiSpanS);      //メッセージ通知時間
             notifiTimes = settings.NotifiTimes;
+            notifiTitle = settings.NotifiTitle;
             notifiMsg = settings.NotifiMsg;
 
             Timer timer = new Timer();
@@ -69,7 +71,7 @@ namespace NotifiReboot
             {   //起動から特定の時間が経過していたら
                 msgFrag = false;    //メッセージ表示中は、新しいメッセージが出ないようにする。
                 if (MessageBox.Show(notifiMsg,
-                    "起動時間超過",
+                    notifiTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation) == DialogResult.OK)
                 {   //メッセージボックスを閉じたら

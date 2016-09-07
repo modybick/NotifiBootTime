@@ -34,6 +34,11 @@ namespace NotifiReboot
         /// </summary>
         [System.Xml.Serialization.XmlElement("notifiTimes")]
         public int NotifiTimes { get; set; }
+        /// <summarry>
+        /// 
+        /// </summarry>
+        [System.Xml.Serialization.XmlElement("notifiTitle")]
+        public String NotifiTitle { get; set; }
         /// <summary>
         /// 通知メッセージ
         /// </summary>
