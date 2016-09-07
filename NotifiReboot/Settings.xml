@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  notifiSpanH     通知までの時間（時）
+  notifiSpanM     通知までの時間（分）
+  notifiSpanS     通知までの時間（秒）
+  timerInterval   通知のスヌーズ間隔
+  notifiTimes     通知スヌーズの回数
+  notifiTitle     メッセージボックスのタイトル
+  notifiMsg       メッセージボックスの内容
+-->
+
 <settings>
-  <timerInterval>5000</timerInterval>
   <notifiSpanH>0</notifiSpanH>
   <notifiSpanM>0</notifiSpanM>
   <notifiSpanS>5</notifiSpanS>
+  <timerInterval>5000</timerInterval>
   <notifiTimes>3</notifiTimes>
-  <notiriTitle>test</notiriTitle>
+  <notifiTitle>test</notifiTitle>
   <notifiMsg>
     PCの起動から１日以上が経過しています。
     PCを再起動してください。
