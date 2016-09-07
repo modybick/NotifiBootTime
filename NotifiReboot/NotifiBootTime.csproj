@@ -7,8 +7,8 @@
     <ProjectGuid>{B2E707CD-F4E9-4B67-B104-31C6D63A37E9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NotifiReboot</RootNamespace>
-    <AssemblyName>NotifiReboot</AssemblyName>
+    <RootNamespace>NotifiBootTime</RootNamespace>
+    <AssemblyName>NotifiBootTime</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -86,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
