@@ -61,11 +61,6 @@ namespace NotifiReboot
             DateTime nowTime = DateTime.Now;
             TimeSpan runningSpan = nowTime - startTime;
 
-            if (notifiTimes == 0)
-            {   //通知回数が０の時は、アプリを閉じる。
-                this.Close();
-                Application.Exit();
-            }
 
             if (runningSpan >= notifiSpan && msgFrag == true && notifiTimes != 0)
             {   //起動から特定の時間が経過していたら
@@ -77,9 +72,13 @@ namespace NotifiReboot
                 {   //メッセージボックスを閉じたら
                     msgFrag = true;
                     notifiTimes -= 1;
+                    if (notifiTimes == 0)
+                    {   //通知回数が０の時は、アプリを閉じる。
+                        this.Close();
+                        Application.Exit();
+                    }
                 }
             }
         }
     }
-    
 }
